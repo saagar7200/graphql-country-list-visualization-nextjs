@@ -11,6 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        chartrimary: "var(--chart-primary)",
+        chartHover: "var(--chart-hover)",
+        chartSecondary: "var(--chart-secondary)",
+        
       },
     },
   },
