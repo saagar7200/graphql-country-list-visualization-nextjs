@@ -1,3 +1,5 @@
+
+'use client'
 // here goes graphql provider
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import React from 'react';

@@ -8,15 +8,18 @@
   --foreground: #171717;
   --chart-primary:#4F46E5;
   --chart-hover:#808DF8;
-  --chart-secondary:#4F45EF
+  --chart-secondary:#4F45EF;
+  --text-primary-dark:#121A28;
+  --text-secondary-dark:#1F2634
+  --text-gray-secondary:#BEC0C6;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
