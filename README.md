@@ -11,6 +11,28 @@ Clone the project repository to your local machine:
 git clone https://github.com/saagar7200/graphql-country-list-visualization-nextjs.git
 ```
 
+### Step 2: Navigate to the Project Directory
+Move into the project folder:
+
+```bash
+cd project-directory
+```
+### Step 3: Install Dependencies
+Install the required dependencies using one of the following commands:
+
+```bash
+
+npm install
+# or
+yarn install
+# or
+pnpm i
+
+```
+
+### Step 4: Run the Development Server
+Start the development server:
+
 ```bash
 
 npm run dev
