@@ -85,7 +85,7 @@ const ScatterChart: React.FC<IScatterChart> = ({
           series={series}
           //   @ts-expect-error //options is a valid ApexCharts option
           options={chartOptions}
-          height={350}
+          height={400}
         />
       ) : (
         <div className="text-center mt-5">

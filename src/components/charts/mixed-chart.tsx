@@ -116,7 +116,7 @@ const MixedChart: React.FC<IMixedChart> = ({
           series={series}
         //   @ts-expect-error option
           options={chartOptions}
-          height={350}
+          height={450}
         />
       ) : (
         <div className="text-center mt-5">
