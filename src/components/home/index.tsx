@@ -17,7 +17,7 @@ const Home = () => {
       <Header/>
         <div className=' grid gap-x-2 grid-cols-12 py-2 w-full '>
             
-            <div className='col-span-12 '>
+            <div className='col-span-12  '>
               <CountriesByContinent isLoading={continentsLoading} data={continents}/>
             </div>
             

@@ -1,5 +1,6 @@
 import { ApexOptions } from 'apexcharts';
 import ReactApexChart from 'react-apexcharts';
+import Skeleton from './skeleton';
 
 interface IProps {
   data:number[];
@@ -58,11 +59,10 @@ export default function PieChart({
     },
   };
 
-  console.log('pi chart is loading', isLoading);
 
   return (
     <div className="bg-white shadow-md rounded-lg h-full w-full p-4">
-      <h2 className="text-xl font-bold text-gray-800 mb-2">{name || 'Chart'}</h2>
+      <h2 className=" text-center text-xl font-bold text-gray-800 mb-4">{name || 'Chart'}</h2>
 
       {isLoading ? (
         <Skeleton />
@@ -83,10 +83,4 @@ export default function PieChart({
   );
 }
 
-const Skeleton = () => {
-  return (
-    <div className="w-full h-64 bg-gray-200 rounded-lg animate-pulse">
-      <div className="h-10 bg-gray-300 rounded w-1/3 mb-4 mx-auto animate-pulse"></div>
-    </div>
-  );
-};
+

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ReactApexChart from 'react-apexcharts';
+import Skeleton from './skeleton';
 
 export default function ReusableChart({ data, categories,isLoading,name='Countries' }: any) {
 
@@ -10,6 +11,7 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
       zoom: { enabled: true },
       foreColor: '#999',
       fontFamily: 'Inter, sans-serif',
+      boxShadow:'none'
     },
     plotOptions: {
       bar: {
@@ -89,11 +91,4 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
 }
 
 
-const Skeleton = () => {
-  return (
-    <div className="w-full h-64 bg-gray-200 rounded-lg animate-pulse">
-    <div className="h-10 bg-gray-300 rounded w-1/3 mb-4 mx-auto animate-pulse"></div>
- 
-  </div>
-  );
-};
+

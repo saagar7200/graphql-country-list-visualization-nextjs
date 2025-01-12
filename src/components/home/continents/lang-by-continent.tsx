@@ -12,7 +12,6 @@ const LanguageDistByContinent = (props: Props) => {
     const {data,isLoading} = props;
 
     const {continentNames, languageCounts,} = generateLangChartDataByContinents(data ?? []);
-    console.log('languageCount', continentNames, languageCounts);
   return (
     <div className='w-full'>
         <PieChart

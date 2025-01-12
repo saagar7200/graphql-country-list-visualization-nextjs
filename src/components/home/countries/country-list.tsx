@@ -22,7 +22,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
   );
 
   return (
-    <div className="overflow-x-auto mt-10 px-3 min-h-[600px]">
+    <div className="overflow-x-auto mt-10 px-3 pb-3">
       <div className="mb-4 flex w-full justify-between">
         <h2 className="text-2xl font-bold mb-4">Countries in {continent} </h2>
 
@@ -37,9 +37,9 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
           />
         </div>
       </div>
-      <div className='h-[600px] overflow-auto'>
+      <div className='h-[700px] overflow-auto pb-4'>
 
-      <table className="min-w-full table-auto">
+      <table className="min-w-full table-auto pb-2">
         <thead className='sticky top-0'>
           <tr className="bg-gray-200 text-left">
             <th className="px-4 py-2 font-semibold">Country</th>
@@ -50,7 +50,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
           </tr>
         </thead>
 
-        <tbody className='h-[600px] overflow-y-scroll'>
+        <tbody className=''>
           {filteredCountries.length > 0 ? (
             filteredCountries.map((country) => (
               <tr

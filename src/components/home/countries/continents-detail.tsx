@@ -26,7 +26,7 @@ const ContinentDetail = (props: Props) => {
         <div>
           <ScatterChart data={chartData} isLoading={loading}/>
         </div>
-        <div className='mt-5'>
+        <div className='mt-6'>
         <MixedChart
         data={chartData}
         isLoading={loading}

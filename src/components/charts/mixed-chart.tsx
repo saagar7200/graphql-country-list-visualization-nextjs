@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import Skeleton from './skeleton';
 
 type MixedChartDataPoint = {
   x: string; // Country name
@@ -127,12 +128,6 @@ const MixedChart: React.FC<IMixedChart> = ({
   );
 };
 
-const Skeleton = () => {
-  return (
-    <div className="w-full h-64 bg-gray-200 rounded-lg animate-pulse">
-      {/* <div className="h-10 bg-gray-300 rounded w-1/3 mb-4 mx-auto animate-pulse"></div> */}
-    </div>
-  );
-};
+
 
 export default MixedChart;
