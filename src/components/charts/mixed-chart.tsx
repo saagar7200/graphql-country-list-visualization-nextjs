@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Skeleton from './skeleton';
+import { ApexOptions } from 'apexcharts';
 
 type MixedChartDataPoint = {
-  x: string; // Country name
-  y: number; // Number of languages or states
-  country: string; // Country name
-  languages: string; // Comma-separated list of languages
-  states: number; // Number of states
+  x: string; 
+  y: number; 
+  country: string; 
+  languages: string; 
+  states: number; 
 };
 
 export interface IMixedChart {
-  data: MixedChartDataPoint[]; // Array of data points for mixed chart
-  isLoading?: boolean; // Loading state
-  name?: string; // Chart title
+  data: MixedChartDataPoint[]; 
+  isLoading?: boolean; 
+  name?: string; 
 }
 
 const MixedChart: React.FC<IMixedChart> = ({
@@ -21,7 +22,7 @@ const MixedChart: React.FC<IMixedChart> = ({
   isLoading = false,
   name = 'Languages and States Across Countries',
 }) => {
-  const chartOptions = {
+  const chartOptions:ApexOptions = {
     chart: {
       type: 'line',
       stacked: false,
@@ -115,7 +116,6 @@ const MixedChart: React.FC<IMixedChart> = ({
         <ReactApexChart
           type="line"
           series={series}
-        //   @ts-expect-error option
           options={chartOptions}
           height={450}
         />

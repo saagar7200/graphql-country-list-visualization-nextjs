@@ -16,7 +16,6 @@ const QuickStats = () => {
                <QuickStatsCard isLoading={countriesLoading} title='Total Countries' value={countries?.countries?.length ?? 195}/> 
                <QuickStatsCard isLoading={languagesLoading} title='Total Languages' value={languagesData?.languages?.length ?? 195}/> 
                <QuickStatsCard isLoading={languagesLoading} title='Most Common Language' value={"English"}/> 
-               {/* <QuickStatsCard title='Largest Continent By Countries' value={'Asia'}/>  */}
                </div>
             </div>
         </Card>

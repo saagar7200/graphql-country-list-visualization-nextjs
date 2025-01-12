@@ -5,7 +5,7 @@ import { ApexOptions } from 'apexcharts';
 
 export default function ReusableChart({ data, categories,isLoading,name='Countries' }: any) {
 
-  // Define chart options directly
+  // chart options
   const chartOptions:ApexOptions ={
     chart: {
       toolbar: { show: true },
