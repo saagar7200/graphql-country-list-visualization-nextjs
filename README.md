@@ -30,7 +30,17 @@ pnpm i
 
 ```
 
-### Step 4: Run the Development Server
+### Step 4: Set the Environment Variable
+#### 1.Navigate to the src/ directory of your Next.js project (create the directory if it doesn't exist).
+#### 2.Inside the src/ directory, create a new file named .env.
+#### 3.Open the .env file you just created.
+#### 4.Add the following line to define your environment variable:
+ 
+```bash
+NEXT_PUBLIC_API_URL=https://countries.trevorblades.com/graphql
+```
+
+### Step 5: Run the Development Server
 Start the development server:
 
 ```bash
