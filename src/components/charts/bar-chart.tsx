@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ReactApexChart from 'react-apexcharts';
 
-export default function ReusableChart({ title, data, categories,isLoading,name='Countries' }: any) {
+export default function ReusableChart({ data, categories,isLoading,name='Countries' }: any) {
 
   // Define chart options directly
   const chartOptions ={
@@ -74,6 +74,7 @@ export default function ReusableChart({ title, data, categories,isLoading,name='
               data: data,
             },
           ]}
+          // @ts-expect-error option
           options={chartOptions}
           height={300}
         />

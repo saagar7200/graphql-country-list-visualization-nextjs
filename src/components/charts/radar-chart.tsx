@@ -2,7 +2,6 @@
 import ReactApexChart from 'react-apexcharts';
 
 export default function RadarChart({
-  title,
   data,
   categories,
   isLoading,
@@ -88,6 +87,7 @@ export default function RadarChart({
               data: data,
             },
           ]}
+          // @ts-expect-error option 
           options={chartOptions}
           height={300}
         />

@@ -1,8 +1,10 @@
+import ScatterChart from '@/components/charts/scater-chart'
 import { GET_CONTINENT } from '@/graphql/queries'
-import { Country } from '@/interfaces'
 import { generateScatterPlotData } from '@/utils/util'
 import { useQuery } from '@apollo/client'
 import React from 'react'
+import MixedChart from '../../charts/mixed-chart';
+import CountryList from './country-list'
 
 type Props = {
     continent:string
@@ -16,17 +18,23 @@ const ContinentDetail = (props: Props) => {
   })
 
   const countries = data?.continent.countries
-  const scatterData  = generateScatterPlotData(countries ?? [])
+  const chartData  = generateScatterPlotData(countries ?? [])
 
-  console.log('data',data,scatterData);
   
     return (
     <div>
-        {continent}
+        <div>
+          <ScatterChart data={chartData} isLoading={false}/>
+        </div>
+        <div className='mt-5'>
+        <MixedChart
+        data={chartData}
+        />
+        </div>
         
-        {
-            countries?.map((country: Country) => <div key={country.code}>{country.name}</div> )
-        }
+        <div className='mt-3'>
+        <CountryList continent={data?.continent?.name} data={data?.continent?.countries ?? []}/>
+      </div>
         </div>
   )
 }

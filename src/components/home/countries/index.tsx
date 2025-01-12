@@ -4,12 +4,13 @@ import { GET_CONTINENTS } from '@/graphql/queries'
 import { useQuery } from '@apollo/client'
 import React, { useState } from 'react'
 import ContinentDetail from './continents-detail'
+import { ContinentQuery } from '@/interfaces'
 
 
 const CountriesInfoByContinent = () => {
     const [selectedContinent, setSelectedContinent] = useState('AS');
     const {data: continentsData , loading: continentsLoading} = useQuery(GET_CONTINENTS);
-    const options = continentsData?.continents.map((continent: any) => {
+    const options = continentsData?.continents.map((continent: ContinentQuery) => {
         return{
             label: continent.name,
             value: continent.code
@@ -20,8 +21,10 @@ const CountriesInfoByContinent = () => {
         setSelectedContinent(value);
     }
   return (
-    <Card className='min-h-[500px]'>
-    <div className='flex flex-col gap-2' >
+    <Card className='p-0 min-h-[500px]'>
+    <div className=' flex flex-col gap-2' >
+     <div className='pt-3 pl-4'>
+     <span className='text-gray-600'>Select Continent</span>
       <SelectInput
       options={options || []}
       label="Select Continent"
@@ -29,9 +32,11 @@ const CountriesInfoByContinent = () => {
       onChange={onChange}   
       
       />
+     </div>
       <div>
        <ContinentDetail continent={selectedContinent}/>
       </div>
+      
     </div>
 
   </Card>

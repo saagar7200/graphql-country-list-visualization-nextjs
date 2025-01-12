@@ -42,12 +42,11 @@ export interface Language {
   }
   
   export interface ContinentQuery {
-    continent: {
+  
       code: string;
       name: string;
       countries: Country[];
-    } | null; // `continent` can be null if the code doesn't match any continent.
-  }
+    }
   
   export interface LanguagesQuery {
     languages: Language[];

@@ -22,32 +22,33 @@ export const generateChartDataByContinents = (continentsData:ContinentsQuery[]) 
     };
   };
 
+
 export function generateScatterPlotData(countriesList:Country[]) {
     // Prepare data for scatter plot
-    const scatterData = countriesList.map((country, index) => {
-      // x: index (or country name), y: number of languages spoken
+    const chartData = countriesList.map((country) => {
       return {
-        x: index,  // You can replace this with country.name if you prefer
+        x: country.name, 
         y: country.languages.length,
-        country: country.name, // For displaying tooltips or labels
-        languages: country.languages.join(", "), // To show languages in tooltips
+        country: country.name, 
+        states: country.states.length,
+        languages: country.languages.map((lang) => lang.name).join(', '), 
       };
     });
   
-    return scatterData;
+    return chartData;
   }
 
 
   export const generateLangChartDataByContinents = (continentsData:ContinentsQuery[]) => {
     const continentNames = continentsData.map((continent) => continent.name);
     const languageCounts = continentsData.map((continent) => {
-      const languagesSet = new Set(); // Use a Set to count unique languages
+      const languagesSet = new Set(); 
       continent.countries?.forEach((country) => {
         country.languages?.forEach((language) => {
           languagesSet.add(language.name);
         });
       });
-      return languagesSet.size; // Return unique language count per continent
+      return languagesSet.size; 
     });
   
     return {
