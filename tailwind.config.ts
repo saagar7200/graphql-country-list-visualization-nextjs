@@ -11,9 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        chartrimary: "var(--chart-primary)",
+        chartPrimary: "var(--chart-primary)",
         chartHover: "var(--chart-hover)",
         chartSecondary: "var(--chart-secondary)",
+        bgSecondary: "var(--secondary-background)",
+        textSecondary: "var(--text-gray-secondary)",
+        textBlue: "var(--text-blue)",
         
       },
     },
