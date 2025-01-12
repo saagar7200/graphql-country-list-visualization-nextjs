@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
+import Skeleton from './skeleton';
 
 type ScatterDataPoint = {
   x: string; 
@@ -70,15 +71,11 @@ const ScatterChart: React.FC<IScatterChart> = ({
   ];
 
   return (
-    <div className="min-h-[350px] bg-white shadow-md rounded-lg h-full w-full p-4">
-      <h2 className="text-xl font-bold text-gray-800 mb-2">{name}</h2>
+    <div className="min-h-[500px] bg-white shadow-md rounded-lg h-full w-full p-4">
+      <h2 className="text-center text-xl font-bold text-gray-800 mb-5">{name}</h2>
 
       {isLoading ? (
-        <div className="text-center mt-5">
-          {/* Skeleton loader */}
-          <div className="w-full h-[350px] bg-gray-200 animate-pulse rounded-lg mx-auto"></div>
-          <p className="text-gray-500 mt-2">Loading Data...</p>
-        </div>
+        <Skeleton/>
       ) : data?.length > 0 ? (
         <ReactApexChart
           type="scatter"

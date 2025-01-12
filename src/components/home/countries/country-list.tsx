@@ -67,7 +67,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
           ) : (
             <tr className='h-full'>
               <td colSpan={5} className=" text-center px-4 py-2 h-full">
-                No countries found in <span className='font-bold italic'>{continent}</span>. Try Changing Continent.
+                No countries found in <span className='font-bold italic'>{continent}</span>.Try Changing the Continent.
               </td>
             </tr>
           )}

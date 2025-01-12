@@ -106,7 +106,7 @@ const MixedChart: React.FC<IMixedChart> = ({
 
   return (
     <div className="min-h-[350px] bg-white shadow-md rounded-lg h-full w-full p-4">
-      <h2 className="text-xl font-bold text-gray-800 mb-2">{name}</h2>
+      <h2 className="text-center text-xl font-bold text-gray-800 mb-5">{name}</h2>
 
       {isLoading ? (
         <Skeleton/>
