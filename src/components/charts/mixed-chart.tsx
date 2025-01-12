@@ -77,10 +77,10 @@ const MixedChart: React.FC<IMixedChart> = ({
     },
     colors: ['#008FFB', '#00E396'], 
     legend: {
-      position: 'top', // Set the position of the legend to the top
-      horizontalAlign: 'center', // Align the legend items in the center
-      floating: true, // Make the legend float above the chart
-      offsetY: -10, // Adjust the vertical position of the legend if necessary
+      position: 'top', 
+      horizontalAlign: 'center', 
+      floating: true, 
+      offsetY: 0, 
     },
   };
 
@@ -108,10 +108,7 @@ const MixedChart: React.FC<IMixedChart> = ({
       <h2 className="text-xl font-bold text-gray-800 mb-2">{name}</h2>
 
       {isLoading ? (
-        <div className="text-center mt-5">
-          <div className="h-12 w-32 bg-gray-200 rounded-md mx-auto animate-pulse"></div>
-          <p className="text-gray-500 mt-2">Loading Data...</p>
-        </div>
+        <Skeleton/>
       ) : data?.length > 0 ? (
         <ReactApexChart
           type="line"
@@ -126,6 +123,14 @@ const MixedChart: React.FC<IMixedChart> = ({
           <p className="text-gray-500 mt-2">No Data Available</p>
         </div>
       )}
+    </div>
+  );
+};
+
+const Skeleton = () => {
+  return (
+    <div className="w-full h-64 bg-gray-200 rounded-lg animate-pulse">
+      {/* <div className="h-10 bg-gray-300 rounded w-1/3 mb-4 mx-auto animate-pulse"></div> */}
     </div>
   );
 };

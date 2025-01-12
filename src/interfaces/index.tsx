@@ -18,7 +18,7 @@ export interface Country {
   phone: string;
   emoji: string;
   emojiU: string;
-  currency: string | null;
+  currency: string;
   languages: Language[];
   states: State[];
 }
@@ -30,7 +30,7 @@ export interface CountriesQuery {
 }
 
 export interface CountryQuery {
-  country: Country | null; // `country` can be null if the code doesn't match any country.
+  country: Country ; 
 }
 
 export interface ContinentsQuery {
