@@ -13,7 +13,7 @@ export default function PieChart({
   data,
   categories,
   isLoading,
-  name = 'Languages spoken By Continent',
+  name = 'Number of Languages Spoken Across Continents',
 }:IProps) {
   // Define chart options for pie chart
   const chartOptions:ApexOptions = {
@@ -62,7 +62,7 @@ export default function PieChart({
 
   return (
     <div className="bg-white shadow-md rounded-lg h-full w-full p-4">
-      <h2 className=" text-center text-xl font-bold text-gray-800 mb-4">{name || 'Chart'}</h2>
+      <h2 className=" text-center text-xl font-bold text-gray-800 mb-5">{name || 'Chart'}</h2>
 
       {isLoading ? (
         <Skeleton />
@@ -71,7 +71,7 @@ export default function PieChart({
           type="pie"
           series={data} 
           options={chartOptions }
-          height={260}
+          height={350}
         />
       ) : (
         <div className="text-center mt-5">

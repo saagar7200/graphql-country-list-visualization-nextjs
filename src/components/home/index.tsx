@@ -5,7 +5,7 @@ import React from 'react'
 import Header from './header';
 import QuickStats from '../quick-stats/quick-stats';
 import CountriesByContinent from './continents/countries-by-continent';
-import LanguageDistByContinent from './continents/lang-by-continent';
+import LanguageDistByContinent from './continents/language-by-continent';
 import CountriesInfoByContinent from './countries';
 
 const Home = () => {

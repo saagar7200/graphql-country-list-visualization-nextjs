@@ -78,7 +78,7 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
           ]}
           // @ts-expect-error option
           options={chartOptions}
-          height={300}
+          height={450}
         />
       ) : (
         <div className="text-center mt-5">

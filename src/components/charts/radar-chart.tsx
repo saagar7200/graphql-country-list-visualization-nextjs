@@ -16,8 +16,8 @@ export default function RadarChart({
       foreColor: '#999',
       fontFamily: 'Inter, sans-serif',
       type: 'radar',
-      height:450,
-      width:450
+      height:500,
+      width:500
     },
     plotOptions: {
       radar: {
@@ -37,6 +37,7 @@ export default function RadarChart({
       categories: categories,
     },
     yaxis: {
+      stepSize: 10,
       labels: {
         formatter: (val: any) => val.toFixed(0),
         style: { fontSize: '12px' },
@@ -90,7 +91,7 @@ export default function RadarChart({
           ]}
           // @ts-expect-error option 
           options={chartOptions}
-          height={300}
+          height={450}
         />
       ) : (
         <div className="text-center mt-5">
