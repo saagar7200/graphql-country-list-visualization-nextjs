@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ReactApexChart from 'react-apexcharts';
 import Skeleton from './skeleton';
+import { ApexOptions } from 'apexcharts';
 
 export default function RadarChart({
   data,
@@ -9,7 +10,7 @@ export default function RadarChart({
   name = 'Countries',
 }: any) {
   // Define chart options for radar chart
-  const chartOptions = {
+  const chartOptions:ApexOptions = {
     chart: {
       toolbar: { show: true },
       zoom: { enabled: true },
@@ -45,7 +46,7 @@ export default function RadarChart({
     },
     tooltip: {
       y: {
-        formatter: (val: string) => val.toLocaleString(),
+        formatter: (val: number) => val.toLocaleString(),
       },
     },
     dataLabels: {
@@ -62,9 +63,7 @@ export default function RadarChart({
       customLegendItems: [name],
       markers: {
         fillColors: ['#008FFB'],
-        width: 10,
-        height: 10,
-        radius: 12,
+       
       },
       horizontalAlign: 'center',
       itemMargin: {
@@ -85,11 +84,11 @@ export default function RadarChart({
           type="radar"
           series={[
             {
-              name: name || 'Data',
+              name: name ,
               data: data,
             },
           ]}
-          // @ts-expect-error option 
+       
           options={chartOptions}
           height={450}
         />

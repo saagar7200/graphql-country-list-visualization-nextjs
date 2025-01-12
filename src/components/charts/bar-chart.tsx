@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ReactApexChart from 'react-apexcharts';
 import Skeleton from './skeleton';
+import { ApexOptions } from 'apexcharts';
 
 export default function ReusableChart({ data, categories,isLoading,name='Countries' }: any) {
 
   // Define chart options directly
-  const chartOptions ={
+  const chartOptions:ApexOptions ={
     chart: {
       toolbar: { show: true },
       zoom: { enabled: true },
@@ -30,7 +31,7 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
     },
     tooltip: {
       y: {
-        formatter: (val: string) => val.toLocaleString(),
+        formatter: (val: number) => val.toLocaleString(),
       },
     },
     dataLabels: {
@@ -47,9 +48,8 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
         customLegendItems: [name],
         markers: {
           fillColors: ['#008FFB'],
-          width: 10,
-          height: 10,
-          radius: 12,
+        
+          
         },
         horizontalAlign: 'center',
         
@@ -75,7 +75,6 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
               data: data,
             },
           ]}
-          // @ts-expect-error option
           options={chartOptions}
           height={450}
         />

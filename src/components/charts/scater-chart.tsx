@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Skeleton from './skeleton';
+import { ApexOptions } from 'apexcharts';
 
 type ScatterDataPoint = {
   x: string; 
@@ -21,7 +22,7 @@ const ScatterChart: React.FC<IScatterChart> = ({
   isLoading ,
   name = 'Languages Spoken in Each Country',
 }) => {
-  const chartOptions = {
+  const chartOptions:ApexOptions = {
     chart: {
       type: 'scatter',
       zoom: { enabled: true },
@@ -34,7 +35,7 @@ const ScatterChart: React.FC<IScatterChart> = ({
         text: 'Country Name',
       },
       labels: {
-        formatter: (value: number) => `${value}`, // Format X-axis values
+        formatter: (value: string): string => value, 
       },
     },
     yaxis: {
@@ -80,7 +81,6 @@ const ScatterChart: React.FC<IScatterChart> = ({
         <ReactApexChart
           type="scatter"
           series={series}
-          //   @ts-expect-error //options is a valid ApexCharts option
           options={chartOptions}
           height={400}
         />
