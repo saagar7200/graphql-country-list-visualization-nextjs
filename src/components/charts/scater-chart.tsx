@@ -18,7 +18,7 @@ export interface IScatterChart {
 const ScatterChart: React.FC<IScatterChart> = ({
   data,
   isLoading ,
-  name = 'Languages Spoken by Country',
+  name = 'Languages Spoken in Each Country',
 }) => {
   const chartOptions = {
     chart: {

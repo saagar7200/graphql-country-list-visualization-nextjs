@@ -19,7 +19,7 @@ export interface IMixedChart {
 const MixedChart: React.FC<IMixedChart> = ({
   data,
   isLoading = false,
-  name = 'Languages and States by Country',
+  name = 'Languages and States Across Countries',
 }) => {
   const chartOptions = {
     chart: {
