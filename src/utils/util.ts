@@ -1,6 +1,6 @@
 
 
-import { ContinentsQuery, Country } from "@/interfaces";
+import { ContinentQuery, Country } from "@/interfaces";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -9,9 +9,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export const generateChartDataByContinents = (continentsData:ContinentsQuery[]) => {
+export const generateChartDataByContinents = (continentsData:ContinentQuery[]) => {
     // Extract continent names and country counts
-    const continentNames = continentsData.map((continent:ContinentsQuery) => continent.name);
+    const continentNames = continentsData.map((continent:ContinentQuery) => continent.name);
     const countryCounts = continentsData.map(
       (continent) => continent.countries?.length || 0
     );
@@ -39,7 +39,7 @@ export function generateScatterPlotData(countriesList:Country[]) {
   }
 
 
-  export const generateLangChartDataByContinents = (continentsData:ContinentsQuery[]) => {
+  export const generateLangChartDataByContinents = (continentsData:ContinentQuery[]) => {
     const continentNames = continentsData.map((continent) => continent.name);
     const languageCounts = continentsData.map((continent) => {
       const languagesSet = new Set(); 

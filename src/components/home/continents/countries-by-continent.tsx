@@ -2,13 +2,13 @@
 'use client'
 import React, {  useMemo } from 'react'
 import ReusableChart from '../../charts/bar-chart'
-import { ContinentsQuery } from '@/interfaces';
+import { ContinentQuery } from '@/interfaces';
 import { generateChartDataByContinents } from '@/utils/util';
 import RadarChart from '@/components/charts/radar-chart';
 
 
 interface IProps {
-    data:ContinentsQuery[];
+    data:ContinentQuery[];
     isLoading?:boolean
 }
 

@@ -1,11 +1,11 @@
 'use client'
-import { ContinentsQuery } from '@/interfaces'
+import { ContinentQuery } from '@/interfaces'
 import { generateLangChartDataByContinents } from '@/utils/util'
 import React, { useMemo } from 'react'
 import PieChart from '../../charts/pie-chart'
 
 type Props = {
-    data:ContinentsQuery[];
+    data:ContinentQuery[];
     isLoading?:boolean
 }
 

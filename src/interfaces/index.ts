@@ -30,7 +30,7 @@ export interface CountriesQuery {
 }
 
 export interface CountryQuery {
-  country: Country ; 
+  country: Country;
 }
 
 // export interface ContinentsQuery {

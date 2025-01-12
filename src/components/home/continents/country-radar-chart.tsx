@@ -1,10 +1,10 @@
-import { ContinentsQuery } from '@/interfaces'
+import { ContinentQuery } from '@/interfaces'
 import { generateChartDataByContinents } from '@/utils/util'
 import React, { useMemo } from 'react'
 import RadarChart from '../../charts/radar-chart';
 
 type Props = {
-    data:ContinentsQuery[];
+    data:ContinentQuery[];
     isLoading?:boolean
 }
 
