@@ -3,7 +3,7 @@ import SelectInput from '@/components/inputs/select-input'
 import { GET_CONTINENTS } from '@/graphql/queries'
 import { useQuery } from '@apollo/client'
 import React, { useState } from 'react'
-import ContinentDetail from './continents-detail'
+import ContinentDetail from './continent-detail'
 import { ContinentQuery } from '@/interfaces'
 
 

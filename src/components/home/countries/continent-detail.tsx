@@ -4,7 +4,7 @@ import { generateScatterPlotData } from '@/utils/util'
 import { useQuery } from '@apollo/client'
 import React, { useMemo } from 'react'
 import MixedChart from '../../charts/line-and-bar-mixed-chart';
-import CountryList from './country-list'
+import CountryList from './content-country-list'
 
 type Props = {
     continent:string
