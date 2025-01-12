@@ -45,8 +45,8 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
             <th className="px-4 py-2 font-semibold">Country</th>
             <th className="px-4 py-2 font-semibold">Native Name</th>
             <th className="px-4 py-2 font-semibold">Currency</th>
-            <th className="px-4 py-2 font-semibold">Phone</th>
-            <th className="px-4 py-2 font-semibold">Emoji</th>
+            <th className="px-4 py-2 font-semibold">Phone Code</th>
+            <th className="px-4 py-2 font-semibold">National Flag</th>
           </tr>
         </thead>
 
@@ -60,7 +60,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
                 <td className="px-4 py-2">{country.name}</td>
                 <td className="px-4 py-2">{country.native}</td>
                 <td className="px-4 py-2">{country.currency}</td>
-                <td className="px-4 py-2">{country.phone}</td>
+                <td className="px-4 py-2">+{country.phone}</td>
                 <td className="px-4 py-2">{country.emoji}</td>
               </tr>
             ))
