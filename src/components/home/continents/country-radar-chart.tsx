@@ -10,13 +10,12 @@ type Props = {
 
 const CountryRadarChart = (props: Props) => {
     const {data,isLoading} = props
-    const {continentsName,countries} = useMemo(() => generateChartDataByContinents(data ?? []), [data])
+    const {continentNames,countryCounts} = useMemo(() => generateChartDataByContinents(data ?? []), [data])
   return (
     <div>
         <RadarChart
-        title={"Countries By Continent"}
-        data={countries}
-        categories={continentsName}
+        data={countryCounts}
+        categories={continentNames}
         isLoading={isLoading}
         />
     </div>

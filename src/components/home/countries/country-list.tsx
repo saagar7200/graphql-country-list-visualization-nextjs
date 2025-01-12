@@ -1,3 +1,5 @@
+'use client'
+
 import { Country } from '@/interfaces';
 import React, { useState } from 'react';
 
@@ -23,11 +25,11 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
 
   return (
     <div className="overflow-x-auto mt-10 px-3 pb-3">
-      <div className="mb-4 flex w-full justify-between">
-        <h2 className="text-2xl font-bold mb-4">Countries in {continent} </h2>
+      <div className="mb-4  flex w-full justify-between items-center">
+        <h2 className="text-2xl font-bold ">Countries in {continent} </h2>
 
         {/* Filter Input */}
-        <div className="mb-4 min-w-[300px]">
+        <div className=" min-w-[300px]">
           <input
             type="text"
             placeholder="Search by Country Name, Currency"

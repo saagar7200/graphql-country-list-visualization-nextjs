@@ -1,9 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import ReactApexChart from 'react-apexcharts';
+'use client'
+import dynamic from 'next/dynamic';
 import Skeleton from './skeleton';
 import { ApexOptions } from 'apexcharts';
+import { Suspense } from 'react';
+const  ReactApexChart  = dynamic(() => import('react-apexcharts'));
 
-export default function ReusableChart({ data, categories,isLoading,name='Countries' }: any) {
+interface Iprops {
+  data: number[];
+  categories: string[];
+  isLoading?: boolean;
+  name?: string;
+}
+
+export default function ReusableChart({ data, categories,isLoading,name='Countries' }: Iprops) {
 
   // chart options
   const chartOptions:ApexOptions ={
@@ -25,7 +34,7 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
     },
     yaxis: {
       labels: {
-        formatter: (val: any) => val.toFixed(0),
+        formatter: (val: number) => val.toFixed(0),
         style: { fontSize: '12px' },
       },
     },
@@ -67,6 +76,8 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
       {isLoading ? (
        <Skeleton/>
       ) : data.length > 0 ? (
+     <Suspense fallback={<div className='min-h-[450px]'><Skeleton /></div>}>
+
         <ReactApexChart
           type="bar"
           series={[
@@ -78,6 +89,7 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
           options={chartOptions}
           height={450}
         />
+      </Suspense>
       ) : (
         <div className="text-center mt-5">
           <div className="h-12 w-32 bg-gray-200 rounded-md mx-auto animate-pulse"></div>

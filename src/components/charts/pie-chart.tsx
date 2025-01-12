@@ -1,6 +1,10 @@
+'use client'
+
 import { ApexOptions } from 'apexcharts';
-import ReactApexChart from 'react-apexcharts';
 import Skeleton from './skeleton';
+// dynamic import
+import dynamic from 'next/dynamic';
+const  ReactApexChart  = dynamic(() => import('react-apexcharts'));
 
 interface IProps {
   data:number[];

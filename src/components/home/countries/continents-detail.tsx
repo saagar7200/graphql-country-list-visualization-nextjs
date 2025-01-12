@@ -1,9 +1,9 @@
-import ScatterChart from '@/components/charts/scater-chart'
+import ScatterChart from '@/components/charts/scatter-chart'
 import { GET_CONTINENT } from '@/graphql/queries'
 import { generateScatterPlotData } from '@/utils/util'
 import { useQuery } from '@apollo/client'
-import React from 'react'
-import MixedChart from '../../charts/mixed-chart';
+import React, { useMemo } from 'react'
+import MixedChart from '../../charts/line-and-bar-mixed-chart';
 import CountryList from './country-list'
 
 type Props = {
@@ -18,7 +18,7 @@ const ContinentDetail = (props: Props) => {
   })
 
   const countries = data?.continent.countries
-  const chartData  = generateScatterPlotData(countries ?? [])
+  const chartData  = useMemo(() => generateScatterPlotData(countries ?? []), [countries])
 
   
     return (

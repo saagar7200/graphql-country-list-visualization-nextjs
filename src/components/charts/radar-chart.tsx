@@ -1,14 +1,26 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import ReactApexChart from 'react-apexcharts';
+'use client'
+
 import Skeleton from './skeleton';
 import { ApexOptions } from 'apexcharts';
+// dynamic import
+import dynamic from 'next/dynamic';
+const  ReactApexChart  = dynamic(() => import('react-apexcharts'));
+
+interface Iprops {
+  data: number[];
+  categories: string[];
+  isLoading?: boolean;
+  name?: string;
+}
 
 export default function RadarChart({
   data,
   categories,
   isLoading,
   name = 'Countries',
-}: any) {
+}: Iprops) {
+
+
   // Define chart options for radar chart
   const chartOptions:ApexOptions = {
     chart: {
@@ -40,7 +52,7 @@ export default function RadarChart({
     yaxis: {
       stepSize: 10,
       labels: {
-        formatter: (val: any) => val.toFixed(0),
+        formatter: (val: number) => val.toFixed(0),
         style: { fontSize: '12px' },
       },
     },

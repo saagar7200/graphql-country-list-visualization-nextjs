@@ -1,6 +1,7 @@
+'use client'
 import { ContinentsQuery } from '@/interfaces'
 import { generateLangChartDataByContinents } from '@/utils/util'
-import React from 'react'
+import React, { useMemo } from 'react'
 import PieChart from '../../charts/pie-chart'
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
 const LanguageDistByContinent = (props: Props) => {
     const {data,isLoading} = props;
 
-    const {continentNames, languageCounts,} = generateLangChartDataByContinents(data ?? []);
+    const {continentNames, languageCounts,} = useMemo(() => generateLangChartDataByContinents(data ?? []), [data]);
   return (
     <div className='w-full'>
         <PieChart

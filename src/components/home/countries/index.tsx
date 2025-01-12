@@ -21,7 +21,7 @@ const CountriesInfoByContinent = () => {
         setSelectedContinent(value);
     }
   return (
-    <Card className='p-0 min-h-[500px]'>
+    <Card className='px-4 min-h-[500px] bg-white'>
     <div className=' flex flex-col gap-2' >
      <div className='pt-3 px-4 lg:pl-4 lg:px-0'>
      <span className='text-gray-600'>Select Continent</span>
