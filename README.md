@@ -27,15 +27,17 @@ npm install
 yarn install
 # or
 pnpm i
+#or
+bun install
 
 ```
 
 ### Step 4: Set the Environment Variable
 To create an environment file, follow these steps:
-#####   1.Navigate to the src/ directory of your Next.js project (create the directory if it doesn't exist).
-#####   2.Inside the src/ directory, create a new file named .env.
-#####   3.Open the .env file you just created.
-#####   4.Add the following line to define your environment variable:
+######   1.Navigate to the src/ directory of your Next.js project (create the directory if it doesn't exist).
+######   2.Inside the src/ directory, create a new file named .env.
+######  3.Open the .env file you just created.
+######   4.Add the following line to define your environment variable:
  
 ```bash
 NEXT_PUBLIC_API_URL=https://countries.trevorblades.com/graphql
