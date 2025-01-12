@@ -6,7 +6,7 @@ type Props = {
 
 const Layout = (props: Props) => {
   return (
-    <div className='px-2 bg-background tracking-wide w-full xl:max-w-[1400px] mx-auto py-8'>
+    <div className='lg:px-2 bg-background tracking-wide w-full xl:max-w-[1400px] mx-auto py-8'>
         {props.children}
     </div>
   )

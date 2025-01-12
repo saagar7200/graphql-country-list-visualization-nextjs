@@ -1,11 +1,11 @@
 "use client";
 
 import SelectInput, { IOption } from "@/components/inputs/select-input";
+import CountryTable from "@/components/table/country-table";
 import { GET_CONTINENT, GET_CONTINENTS } from "@/graphql/queries";
 import { ContinentQuery, Country } from "@/interfaces";
 import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
-import CountryTable from "./country-table";
 
 type Props = {
   data: Country[];
@@ -15,8 +15,8 @@ type Props = {
 const CountryList: React.FC<Props> = ({}) => {
   const [filter, setFilter] = useState<string>("");
   const [selectedContinent, setSelectedContinent] = useState("AS");
-  const { data: continentsData } = useQuery(GET_CONTINENTS);
-  const { data: continentData } = useQuery(GET_CONTINENT, {
+  const { data: continentsData ,loading : continentsLoading} = useQuery(GET_CONTINENTS);
+  const { data: continentData ,loading: singlecontinentLoading} = useQuery(GET_CONTINENT, {
     variables: { code: selectedContinent },
   });
 
@@ -80,7 +80,7 @@ const CountryList: React.FC<Props> = ({}) => {
           </div>
         </div>
       </div>
-      <CountryTable continent={continent} countries={filteredCountries} />
+      <CountryTable isLoading={continentsLoading || singlecontinentLoading} continent={continent} countries={filteredCountries} />
     </div>
   );
 };

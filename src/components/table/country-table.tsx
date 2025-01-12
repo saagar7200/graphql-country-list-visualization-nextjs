@@ -1,13 +1,17 @@
 import { ContinentQuery, Country } from "@/interfaces";
 import React from "react";
+import TableRowSkeleton from "./row-skeleton";
 
 type Props = {
   countries: Country[];
   continent: ContinentQuery;
+  isLoading?: boolean;
 };
 
 const CountryTable = (props: Props) => {
-  const { countries, continent } = props;
+
+
+  const { countries, continent ,isLoading} = props;
   return (
     <div className="h-[700px] overflow-y-auto pb-4">
       <table className="min-w-full table-auto pb-2">
@@ -22,7 +26,7 @@ const CountryTable = (props: Props) => {
         </thead>
 
         <tbody className="">
-          {countries?.length > 0 ? (
+          {isLoading ? <TableRowSkeleton/> : countries?.length > 0 ? (
             countries.map((country) => (
               <tr
                 key={country.code}
