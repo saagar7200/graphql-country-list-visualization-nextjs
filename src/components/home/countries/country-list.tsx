@@ -24,7 +24,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
   return (
     <div className="overflow-x-auto mt-10 px-3 min-h-[600px]">
       <div className="mb-4 flex w-full justify-between">
-        <h2 className="text-2xl font-bold mb-4">{continent} Countries List </h2>
+        <h2 className="text-2xl font-bold mb-4">Countries in {continent} </h2>
 
         {/* Filter Input */}
         <div className="mb-4 min-w-[300px]">
@@ -37,9 +37,10 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
           />
         </div>
       </div>
+      <div className='h-[600px] overflow-auto'>
 
       <table className="min-w-full table-auto">
-        <thead>
+        <thead className='sticky top-0'>
           <tr className="bg-gray-200 text-left">
             <th className="px-4 py-2 font-semibold">Country</th>
             <th className="px-4 py-2 font-semibold">Native Name</th>
@@ -48,12 +49,13 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
             <th className="px-4 py-2 font-semibold">Emoji</th>
           </tr>
         </thead>
-        <tbody>
+
+        <tbody className='h-[600px] overflow-y-scroll'>
           {filteredCountries.length > 0 ? (
             filteredCountries.map((country) => (
               <tr
-                key={country.code}
-                className="cursor-pointer border-t hover:bg-gray-100 hover:text-black"
+              key={country.code}
+              className="cursor-pointer border-t hover:bg-gray-100 hover:text-black"
               >
                 <td className="px-4 py-2">{country.name}</td>
                 <td className="px-4 py-2">{country.native}</td>
@@ -71,6 +73,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
           )}
         </tbody>
       </table>
+        </div>
     </div>
   );
 };

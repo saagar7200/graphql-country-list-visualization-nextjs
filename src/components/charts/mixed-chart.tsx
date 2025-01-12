@@ -75,7 +75,13 @@ const MixedChart: React.FC<IMixedChart> = ({
     grid: {
       borderColor: '#e0e0e0',
     },
-    colors: ['#008FFB', '#00E396'], // Bar and line colors
+    colors: ['#008FFB', '#00E396'], 
+    legend: {
+      position: 'top', // Set the position of the legend to the top
+      horizontalAlign: 'center', // Align the legend items in the center
+      floating: true, // Make the legend float above the chart
+      offsetY: -10, // Adjust the vertical position of the legend if necessary
+    },
   };
 
   const series = [

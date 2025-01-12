@@ -24,7 +24,7 @@ const CountriesByContinent = (props:IProps) => {
     <div className='w-full px-3'>
     <h2 className="text-xl font-bold text-gray-800 mb-2">Countries By Continent</h2>
 
-      <div className='flex gap-1'>
+      <div className='flex gap-1 flex-col lg:flex-row'>
       <ReusableChart
       title={"Countries By Continent"}
       data={countryCounts}

@@ -13,7 +13,7 @@ type Props = {
 const ContinentDetail = (props: Props) => {
   const {continent} = props
 
-  const {data} = useQuery(GET_CONTINENT,{
+  const {data,loading} = useQuery(GET_CONTINENT,{
     variables: { code: continent },
   })
 
@@ -24,11 +24,12 @@ const ContinentDetail = (props: Props) => {
     return (
     <div>
         <div>
-          <ScatterChart data={chartData} isLoading={false}/>
+          <ScatterChart data={chartData} isLoading={loading}/>
         </div>
         <div className='mt-5'>
         <MixedChart
         data={chartData}
+        isLoading={loading}
         />
         </div>
         

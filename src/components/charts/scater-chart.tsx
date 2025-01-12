@@ -4,7 +4,7 @@ import ReactApexChart from 'react-apexcharts';
 type ScatterDataPoint = {
   x: string; 
   y: number; 
-  states:number
+  states: number;
   country: string; 
   languages: string; 
 };
@@ -17,7 +17,7 @@ export interface IScatterChart {
 
 const ScatterChart: React.FC<IScatterChart> = ({
   data,
-  isLoading = false,
+  isLoading ,
   name = 'Languages Spoken by Country',
 }) => {
   const chartOptions = {
@@ -42,7 +42,7 @@ const ScatterChart: React.FC<IScatterChart> = ({
       },
     },
     tooltip: {
-      custom: function ({  dataPointIndex }: {dataPointIndex:number}) {
+      custom: function ({ dataPointIndex }: { dataPointIndex: number }) {
         const point = data[dataPointIndex];
         return `
           <div style="padding: 8px; border-radius: 4px; background: #f4f4f4; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -75,14 +75,15 @@ const ScatterChart: React.FC<IScatterChart> = ({
 
       {isLoading ? (
         <div className="text-center mt-5">
-          <div className="h-12 w-32 bg-gray-200 rounded-md mx-auto animate-pulse"></div>
+          {/* Skeleton loader */}
+          <div className="w-full h-[350px] bg-gray-200 animate-pulse rounded-lg mx-auto"></div>
           <p className="text-gray-500 mt-2">Loading Data...</p>
         </div>
       ) : data?.length > 0 ? (
         <ReactApexChart
           type="scatter"
           series={series}
-        //   @ts-expect-error //options is a valid ApexCharts option
+          //   @ts-expect-error //options is a valid ApexCharts option
           options={chartOptions}
           height={350}
         />

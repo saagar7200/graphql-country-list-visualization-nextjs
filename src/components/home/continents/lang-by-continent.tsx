@@ -4,11 +4,12 @@ import React from 'react'
 import PieChart from '../../charts/pie-chart'
 
 type Props = {
-    data:ContinentsQuery[]
+    data:ContinentsQuery[];
+    isLoading?:boolean
 }
 
 const LanguageDistByContinent = (props: Props) => {
-    const {data} = props;
+    const {data,isLoading} = props;
 
     const {continentNames, languageCounts,} = generateLangChartDataByContinents(data ?? []);
     console.log('languageCount', continentNames, languageCounts);
@@ -17,6 +18,7 @@ const LanguageDistByContinent = (props: Props) => {
         <PieChart
             data={languageCounts}
             categories={continentNames}
+            isLoading={isLoading}
         />
     </div>
   )
