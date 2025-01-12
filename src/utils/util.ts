@@ -24,13 +24,13 @@ export const generateChartDataByContinents = (continentsData:ContinentsQuery[]) 
 
 
 export function generateScatterPlotData(countriesList:Country[]) {
-    // Prepare data for scatter plot
+    // Prepare data for scatter  and mixed chart plot
     const chartData = countriesList.map((country) => {
       return {
         x: country.name, 
-        y: country.languages.length,
+        y: country.languages.length || 0,
         country: country.name, 
-        states: country.states.length,
+        states: country.states.length || 0,
         languages: country.languages.map((lang) => lang.name).join(', '), 
       };
     });
@@ -48,7 +48,7 @@ export function generateScatterPlotData(countriesList:Country[]) {
           languagesSet.add(language.name);
         });
       });
-      return languagesSet.size; 
+      return languagesSet.size || 0; 
     });
   
     return {

@@ -15,10 +15,9 @@ interface SelectInputProps {
  const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps>(
   ({ options, value, onChange }, ref) => {
     return (
-      <div className="relative max-w-[300px]">
-        {/* <label className="block text-gray-700 font-medium mb-2">{label}</label> */}
+      <div className="relative mr-4 w-full md:max-w-[300px]">
         <select
-          ref={ref} // Attach the ref here
+          ref={ref} 
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-700 appearance-none"

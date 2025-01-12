@@ -2,7 +2,6 @@ import React, { useMemo } from 'react'
 import ReusableChart from '../../charts/bar-chart'
 import { ContinentsQuery } from '@/interfaces';
 import { generateChartDataByContinents } from '@/utils/util';
-// import Card from '../../card';
 import RadarChart from '@/components/charts/radar-chart';
 
 interface IProps {

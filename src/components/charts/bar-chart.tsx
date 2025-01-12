@@ -11,7 +11,6 @@ export default function ReusableChart({ data, categories,isLoading,name='Countri
       zoom: { enabled: true },
       foreColor: '#999',
       fontFamily: 'Inter, sans-serif',
-      boxShadow:'none'
     },
     plotOptions: {
       bar: {

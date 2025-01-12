@@ -37,7 +37,7 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
           />
         </div>
       </div>
-      <div className='h-[700px] overflow-auto pb-4'>
+      <div className='h-[700px] overflow-y-auto pb-4'>
 
       <table className="min-w-full table-auto pb-2">
         <thead className='sticky top-0'>

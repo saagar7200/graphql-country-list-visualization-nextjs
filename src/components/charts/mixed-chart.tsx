@@ -28,6 +28,7 @@ const MixedChart: React.FC<IMixedChart> = ({
       toolbar: { show: true },
       foreColor: '#333',
       fontFamily: 'Inter, sans-serif',
+     
     },
     stroke: {
       width: [0, 4], // Bar width and line width
@@ -87,7 +88,7 @@ const MixedChart: React.FC<IMixedChart> = ({
 
   const series = [
     {
-      name: 'Languages',
+      name: 'Number Of Languages',
       type: 'column',
       data: data.map((point) => ({
         x: point.x,
@@ -95,7 +96,7 @@ const MixedChart: React.FC<IMixedChart> = ({
       })),
     },
     {
-      name: 'States',
+      name: 'Number ofStates',
       type: 'line',
       data: data.map((point) => ({
         x: point.x,

@@ -9,7 +9,7 @@ import { ContinentQuery } from '@/interfaces'
 
 const CountriesInfoByContinent = () => {
     const [selectedContinent, setSelectedContinent] = useState('AS');
-    const {data: continentsData , loading: continentsLoading} = useQuery(GET_CONTINENTS);
+    const {data: continentsData } = useQuery(GET_CONTINENTS);
     const options = continentsData?.continents.map((continent: ContinentQuery) => {
         return{
             label: continent.name,
@@ -23,7 +23,7 @@ const CountriesInfoByContinent = () => {
   return (
     <Card className='p-0 min-h-[500px]'>
     <div className=' flex flex-col gap-2' >
-     <div className='pt-3 pl-4'>
+     <div className='pt-3 px-4 lg:pl-4 lg:px-0'>
      <span className='text-gray-600'>Select Continent</span>
       <SelectInput
       options={options || []}
