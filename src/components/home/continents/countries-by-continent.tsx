@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react'
 import ReusableChart from '../../charts/bar-chart'
-import { dummyProps } from '../charts/dummydata'
 import { ContinentsQuery } from '@/interfaces';
 import { generateChartDataByContinents } from '@/utils/util';
 import Card from '../../card';
@@ -11,11 +10,13 @@ interface IProps {
     isLoading?:boolean
 }
 
+
+
 const CountriesByContinent = (props:IProps) => {
   const { data: continentsData,isLoading}= props
 
-    const {continentsName,countries} = useMemo(() => generateChartDataByContinents(continentsData ?? []), [continentsData])
-    console.log("continents on component", continentsName,countries);
+    const {continentNames, countryCounts} = useMemo(() => generateChartDataByContinents(continentsData ?? []), [continentsData])
+    console.log("continents on component", continentNames, countryCounts);
 
   return (
    <div>
@@ -26,14 +27,14 @@ const CountriesByContinent = (props:IProps) => {
       <div className='flex gap-1'>
       <ReusableChart
       title={"Countries By Continent"}
-      data={countries}
-      categories={continentsName}
+      data={countryCounts}
+      categories={continentNames}
       isLoading={isLoading}
       />
       <RadarChart
       title={"Countries By Continent"}
-      data={countries}
-      categories={continentsName}
+      data={countryCounts}
+      categories={continentNames}
       isLoading={isLoading}
       />
       </div>

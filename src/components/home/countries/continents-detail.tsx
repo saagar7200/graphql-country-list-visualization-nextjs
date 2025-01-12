@@ -1,4 +1,5 @@
-import { GET_CONTINENT, GET_CONTINENTS } from '@/graphql/queries'
+import { GET_CONTINENT } from '@/graphql/queries'
+import { Country } from '@/interfaces'
 import { generateScatterPlotData } from '@/utils/util'
 import { useQuery } from '@apollo/client'
 import React from 'react'
@@ -10,7 +11,7 @@ type Props = {
 const ContinentDetail = (props: Props) => {
   const {continent} = props
 
-  const {data,loading} = useQuery(GET_CONTINENT,{
+  const {data} = useQuery(GET_CONTINENT,{
     variables: { code: continent },
   })
 
@@ -24,7 +25,7 @@ const ContinentDetail = (props: Props) => {
         {continent}
         
         {
-            countries?.map((country: any) => <div>{country.name}</div> )
+            countries?.map((country: Country) => <div key={country.code}>{country.name}</div> )
         }
         </div>
   )
