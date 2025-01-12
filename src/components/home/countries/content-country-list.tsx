@@ -1,15 +1,40 @@
-'use client'
+"use client";
 
-import { Country } from '@/interfaces';
-import React, { useState } from 'react';
+import SelectInput, { IOption } from "@/components/inputs/select-input";
+import { GET_CONTINENT, GET_CONTINENTS } from "@/graphql/queries";
+import { ContinentQuery, Country } from "@/interfaces";
+import { useQuery } from "@apollo/client";
+import React, { useState } from "react";
+import CountryTable from "./country-table";
 
 type Props = {
   data: Country[];
   continent: string;
 };
 
-const CountryList: React.FC<Props> = ({ data,continent }) => {
-  const [filter, setFilter] = useState<string>(''); // Store the filter text
+const CountryList: React.FC<Props> = ({}) => {
+  const [filter, setFilter] = useState<string>("");
+  const [selectedContinent, setSelectedContinent] = useState("AS");
+  const { data: continentsData } = useQuery(GET_CONTINENTS);
+  const { data: continentData } = useQuery(GET_CONTINENT, {
+    variables: { code: selectedContinent },
+  });
+
+  const continent: ContinentQuery = continentData?.continent;
+  const countries: Country[] = continent?.countries;
+
+  const options: IOption[] = continentsData?.continents.map(
+    (continent: ContinentQuery) => {
+      return {
+        label: continent.name,
+        value: continent.code,
+      };
+    }
+  );
+
+  const onChange = (value: string) => {
+    setSelectedContinent(value);
+  };
 
   // Handle filter input change
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,65 +42,45 @@ const CountryList: React.FC<Props> = ({ data,continent }) => {
   };
 
   // Filter the countries based on the filter text
-  const filteredCountries = data.filter(
-    (country) =>
+  const filteredCountries = countries?.filter(
+    (country: Country) =>
       country.name.toLowerCase().includes(filter) ||
-      country?.currency?.toLowerCase().includes(filter) 
+      country?.currency?.toLowerCase().includes(filter)
   );
 
   return (
     <div className="overflow-x-auto mt-10 px-3 pb-3">
-      <div className="mb-4  flex w-full justify-between items-center">
-        <h2 className="text-2xl font-bold ">Countries in {continent} </h2>
+      <div className="flex flex-col gap-3">
+        {/* select */}
 
-        {/* Filter Input */}
-        <div className=" min-w-[300px]">
-          <input
-            type="text"
-            placeholder="Search by Country Name, Currency"
-            className="placeholder:text-sm p-2 border border-gray-300 rounded-md w-full"
-            value={filter}
-            onChange={handleFilterChange}
+        <div className="pt-3  lg:px-0">
+          <span className="text-gray-600">Select Continent</span>
+          <SelectInput
+            options={options || []}
+            label="Select Continent"
+            value={selectedContinent}
+            onChange={onChange}
           />
         </div>
-      </div>
-      <div className='h-[700px] overflow-y-auto pb-4'>
 
-      <table className="min-w-full table-auto pb-2">
-        <thead className='sticky top-0'>
-          <tr className="bg-gray-200 text-left">
-            <th className="px-4 py-2 font-semibold">Country</th>
-            <th className="px-4 py-2 font-semibold">Native Name</th>
-            <th className="px-4 py-2 font-semibold">Currency</th>
-            <th className="px-4 py-2 font-semibold">Phone Code</th>
-            <th className="px-4 py-2 font-semibold">National Flag</th>
-          </tr>
-        </thead>
+        <div className="mb-4  flex w-full justify-between items-center">
+          <h2 className="text-2xl font-bold ">
+            Countries in {continent?.name}{" "}
+          </h2>
 
-        <tbody className=''>
-          {filteredCountries.length > 0 ? (
-            filteredCountries.map((country) => (
-              <tr
-              key={country.code}
-              className="cursor-pointer border-t hover:bg-gray-100 hover:text-black"
-              >
-                <td className="px-4 py-2">{country.name}</td>
-                <td className="px-4 py-2">{country.native}</td>
-                <td className="px-4 py-2">{country.currency}</td>
-                <td className="px-4 py-2">+{country.phone}</td>
-                <td className="px-4 py-2">{country.emoji}</td>
-              </tr>
-            ))
-          ) : (
-            <tr className='h-full'>
-              <td colSpan={5} className=" text-center px-4 py-2 h-full">
-                No countries found in <span className='font-bold italic'>{continent}</span>.Try Changing the Continent.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+          {/* Filter Input */}
+          <div className=" min-w-[300px]">
+            <input
+              type="text"
+              placeholder="Search by Country Name, Currency"
+              className="placeholder:text-sm p-2 border border-gray-300 rounded-md w-full"
+              value={filter}
+              onChange={handleFilterChange}
+            />
+          </div>
         </div>
+      </div>
+      <CountryTable continent={continent} countries={filteredCountries} />
     </div>
   );
 };

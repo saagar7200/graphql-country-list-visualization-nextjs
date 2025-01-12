@@ -33,11 +33,11 @@ export interface CountryQuery {
   country: Country ; 
 }
 
-export interface ContinentsQuery {
-  code: string;
-  name: string;
-  countries: Country[];
-}
+// export interface ContinentsQuery {
+//   code: string;
+//   name: string;
+//   countries: Country[];
+// }
 
 export interface ContinentQuery {
   code: string;

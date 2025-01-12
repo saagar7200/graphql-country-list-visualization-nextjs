@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-interface IOption {
+export interface IOption {
     label: string;
     value: string;
 }

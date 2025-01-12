@@ -1,5 +1,5 @@
 import Card from '@/components/card'
-import SelectInput from '@/components/inputs/select-input'
+import SelectInput, { IOption } from '@/components/inputs/select-input'
 import { GET_CONTINENTS } from '@/graphql/queries'
 import { useQuery } from '@apollo/client'
 import React, { useState } from 'react'
@@ -10,7 +10,7 @@ import { ContinentQuery } from '@/interfaces'
 const CountriesInfoByContinent = () => {
     const [selectedContinent, setSelectedContinent] = useState('AS');
     const {data: continentsData } = useQuery(GET_CONTINENTS);
-    const options = continentsData?.continents.map((continent: ContinentQuery) => {
+    const options:IOption[] = continentsData?.continents.map((continent: ContinentQuery) => {
         return{
             label: continent.name,
             value: continent.code
